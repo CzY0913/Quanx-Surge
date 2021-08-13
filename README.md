@@ -1,1 +1,1 @@
-# Quanx-Surge
+自用Quanx&Surge配置
