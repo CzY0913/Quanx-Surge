@@ -1,6 +1,13 @@
 #!name= 快速搜索
+
+#!name= 快速搜索
+#!desc= 更新时间 2022-07-22
+#!openUrl= https://github.com/CzY0913/Quanx-Surge
+#!author= CzY0913
+#!homepage= https://github.com/CzY0913/Quanx-Surge
+#!icon= https://raw.githubusercontent.com/Orz-3/mini/master/Color/Final.png
+#!redirect= 10
 #!mitm= 1
-#!total= 21
 [URL Rewrite]
 # ph xxx (pornhub)
 ^https:\/\/duckduckgo.com\/\?q=ph\+([^&]+).+ https://cn.pornhub.com/video/search?search=$1 302
@@ -14,45 +21,11 @@
 # gi xxx (Google 图片)
 ^https:\/\/duckduckgo.com\/\?q=gi\+([^&]+).+ https://www.google.com/search?&tbm=isch&q=$1 302
 
-# yd xxx (有道词典)
-^https:\/\/duckduckgo.com\/\?q=yd\+([^&]+).+ http://dict.youdao.com/search?q=$1 302
-
-# trc xxx (Google 译至中)
-^https:\/\/duckduckgo.com\/\?q=trc\+([^&]+).+ https://translate.google.com/#view=home&op=translate&sl=auto&tl=zh-CN&text=$1 302
-
-# tre xxx (Google 译至英)
-^https:\/\/duckduckgo.com\/\?q=tre\+([^&]+).+ https://translate.google.com/#view=home&op=translate&sl=auto&tl=en&text=$1 302
-
-
-# sspai xxx (少数派站内搜索)
-^https:\/\/duckduckgo.com\/\?q=sspai\+([^&]+).+ https://sspai.com/search/post/$1 302
-
-# ssp xxx (Google 搜索少数派)
-^https:\/\/duckduckgo.com\/\?q=ssp\+([^&]+).+ https://www.google.com/search?as_q=$1&as_sitesearch=sspai.com 302
-
 # yt xxx (YouTube)
 ^https:\/\/duckduckgo.com\/\?q=yt\+([^&]+).+ https://www.youtube.com/results?search_query=$1 302
 
-# so xxx (Stack Overflow)
-^https:\/\/duckduckgo.com\/\?q=so\+([^&]+).+ https://stackoverflow.com/search?q=$1 302
-
-# se xxx (StackExchange)
-^https:\/\/duckduckgo.com\/\?q=se\+([^&]+).+ https://stackexchange.com/search?q=$1 302
-
-# wa xxx (WolframAlpha)
-^https:\/\/duckduckgo.com\/\?q=wa\+([^&]+).+ https://www.wolframalpha.com/input/?i=$1 302
-
-# db xxx (豆瓣)
-^https:\/\/duckduckgo.com\/\?q=db\+([^&]+).+ https://www.douban.com/search?q=$1 302
-
 # zh xxx (知乎)
 ^https:\/\/duckduckgo.com\/\?q=zh\+([^&]+).+ http://www.zhihu.com/search?q=$1 302
-
-# wb xxx (微博)
-^https:\/\/duckduckgo.com\/\?q=wb\+([^&]+).+ https://s.weibo.com/weibo/$1 302
-
-# rd xxx (Reddit)
-^https:\/\/duckduckgo.com\/\?q=rd\+([^&]+).+ https://www.reddit.com/search?q=$1 302
 
 # tw xxx (Twitter)
 ^https:\/\/duckduckgo.com\/\?q=tw\+([^&]+).+ https://twitter.com/search?q=$1 302
