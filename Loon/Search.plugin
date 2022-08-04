@@ -16,7 +16,7 @@
 ^https:\/\/duckduckgo.com\/\?q=bd\+([^&]+).+ https://www.baidu.com/s?wd=$1 302
 
 # gh xxx (GitHub)
-^https:\/\/duckduckgo.com\/\?q=github\+([^&]+).+ https://github.com/search?q=$1 302
+^https:\/\/duckduckgo.com\/\?q=gh\+([^&]+).+ https://github.com/search?q=$1 302
 
 # gi xxx (Google 图片)
 ^https:\/\/duckduckgo.com\/\?q=gi\+([^&]+).+ https://www.google.com/search?&tbm=isch&q=$1 302
