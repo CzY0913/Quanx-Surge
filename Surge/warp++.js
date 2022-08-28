@@ -5,7 +5,7 @@
 @createTime: 210312
 */
 const $ = API("WARP++", true);
-const manualreferrer = "0c4545b6-b62e-4c93-bbf2-fc9609741e1e"; 
+const manualreferrer = "2819140d-f6d1-422b-8d61-65a905524327"; 
 const autoreferrer = $.read("#referrer");
 
 if (autoreferrer != null) {
