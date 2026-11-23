@@ -1,12 +1,9 @@
 // ninebot_sign.js
-// 单账号版 · 配置存于 $persistentStore
+// 单账号版 · 使用 Surge 自带通知
 
-// ===== 配置键名 =====
 const KEY_DEVICE_ID = "ninebot_device_id";
 const KEY_AUTH      = "ninebot_authorization";
-const KEY_BARK      = "ninebot_bark_key";   // 可选
 
-// ===== 接口常量 =====
 const API_SIGN   = "https://cn-cbu-gateway.ninebot.com/portal/api/user-sign/v2/sign";
 const API_STATUS = "https://cn-cbu-gateway.ninebot.com/portal/api/user-sign/v2/status";
 
@@ -23,7 +20,6 @@ const HEADERS = {
   "Referer": "https://h5-bj.ninebot.com/"
 };
 
-// ===== 工具函数 =====
 function request(method, url, body, auth) {
   return new Promise((resolve, reject) => {
     const opts = {
@@ -56,22 +52,18 @@ async function doSign(deviceId, auth) {
   throw new Error((data && data.msg) || "签到失败");
 }
 
-function sendBark(key, title, content) {
-  if (!key) return;
-  const url = `https://api.day.app/${key}/${encodeURIComponent(title)}/${encodeURIComponent(content)}?group=${encodeURIComponent("九号签到")}`;
-  $httpClient.get(url, (err) => {
-    if (err) console.log("Bark 推送失败: " + err);
-  });
+// ===== 改用 Surge 原生通知 =====
+function notify(title, body) {
+  $notification.post(title, "", body);
 }
+// =================================
 
-// ===== 主流程 =====
 (async () => {
   const deviceId = $persistentStore.read(KEY_DEVICE_ID);
   const auth     = $persistentStore.read(KEY_AUTH);
-  const barkKey  = $persistentStore.read(KEY_BARK) || "";
 
   if (!deviceId || !auth) {
-    console.log("缺少 deviceId 或 authorization，请先写入 $persistentStore");
+    notify("九号签到 ❌ 配置缺失", "请先写入 deviceId 和 authorization");
     $done();
     return;
   }
@@ -105,6 +97,6 @@ function sendBark(key, title, content) {
 
   const text = lines.join("\n");
   console.log(text);
-  sendBark(barkKey, ok ? "九号签到成功" : "九号签到失败", text);
+  notify(ok ? "九号签到成功 ✅" : "九号签到失败 ❌", text);
   $done();
 })();
