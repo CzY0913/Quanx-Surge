@@ -9,62 +9,35 @@
     "https://img.icons8.com/color/96/000000/segway.png",
     "https://img.icons8.com/color/96/000000/segway.png"
   ],
-  "keys": [
-    "ninebot_device_id",
-    "ninebot_authorization",
-    "ninebot_name",
-    "ninebot_accounts",
-    "bark_key"
-  ],
-  "settings": [
+  "apps": [
     {
-      "id": "ninebot_device_id",
-      "name": "设备 ID",
-      "val": "",
-      "type": "text",
-      "placeholder": "请输入设备 ID（通过抓包获取）",
-      "desc": "单账号时填写。从九号 APP 抓包获取的 device_id"
-    },
-    {
-      "id": "ninebot_authorization",
-      "name": "授权令牌",
-      "val": "",
-      "type": "text",
-      "placeholder": "Bearer eyJhbGc...",
-      "desc": "单账号时填写。从抓包获取的 Authorization，必须包含 Bearer 前缀"
-    },
-    {
-      "id": "ninebot_name",
-      "name": "账号名称",
-      "val": "九号出行",
-      "type": "text",
-      "placeholder": "我的账号",
-      "desc": "单账号时可选，用于标识账号"
-    },
-    {
-      "id": "ninebot_accounts",
-      "name": "多账号配置",
-      "val": "",
-      "type": "textarea",
-      "placeholder": "[{\"deviceId\":\"111\",\"authorization\":\"Bearer xxx\",\"name\":\"账号1\"},{\"deviceId\":\"222\",\"authorization\":\"Bearer yyy\",\"name\":\"账号2\"}]",
-      "desc": "多账号时填写 JSON 数组，配置后上面的单账号参数将失效。格式：[{\"deviceId\":\"设备ID\",\"authorization\":\"Bearer 令牌\",\"name\":\"账号名\"}]",
-      "autoGrow": true,
-      "rows": 5
-    },
-    {
-      "id": "bark_key",
-      "name": "Bark 推送密钥",
-      "val": "",
-      "type": "text",
-      "placeholder": "xxxxxxxxxxxxxxxx",
-      "desc": "可选。用于接收签到结果的 Bark 推送通知"
+      "id": "ninebot_sign",
+      "name": "九号签到",
+      "desc": "九号出行自动签到",
+      "author": "@waistu",
+      "repo": "https://github.com/waistu/Ninebot",
+      "icon": "https://img.icons8.com/color/96/000000/segway.png",
+      "icons": [
+        "https://img.icons8.com/color/96/000000/segway.png",
+        "https://img.icons8.com/color/96/000000/segway.png"
+      ],
+      "keys": ["ninebot_device_id", "ninebot_authorization"],
+      "settings": [
+        {
+          "id": "ninebot_device_id",
+          "name": "Device ID",
+          "val": "",
+          "type": "text",
+          "desc": "抓包获取的 device_id"
+        },
+        {
+          "id": "ninebot_authorization",
+          "name": "Authorization",
+          "val": "",
+          "type": "text",
+          "desc": "抓包获取的 Authorization，保留 Bearer 前缀"
+        }
+      ]
     }
-  ],
-  "scripts": [
-    {
-      "name": "九号出行签到",
-      "script": "https://raw.githubusercontent.com/waistu/Ninebot/main/sign_ninebot.js"
-    }
-  ],
-  "author_avatar": "https://avatars.githubusercontent.com/u/xxxxx"
+  ]
 }
